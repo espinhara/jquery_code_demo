@@ -1,0 +1,23 @@
+{
+  "name": "jquery_code_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/espinhara/jquery_code_demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/espinhara/jquery_code_demo/issues"
+  },
+  "homepage": "https://github.com/espinhara/jquery_code_demo#readme",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}
