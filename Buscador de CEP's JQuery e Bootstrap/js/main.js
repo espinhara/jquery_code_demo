@@ -1,5 +1,6 @@
+//initialize value cep
 var cep = "";
-
+//function get change input 
 function chnageInput(e) {
     console.log(e.value.toString())
     const str = e.value.length
@@ -7,21 +8,25 @@ function chnageInput(e) {
     if (str == 8) {
         cep = e.value
         console.log(cep)
-        $("#btnConsult").css("display", "block")
+        $("#btnConsult").show()
     }
 
 }
-let count =1
+//set index table 
+let count = 1
+//initialize content table 
 var contentHTML = "";
+//url api
 let urlCep = `https://viacep.com.br/ws/`;
 function consultaCep() {
-    $("#loader").css("display", "block")
+    $("#loader").show();
     $.ajax({
         url: urlCep + `${cep}/json/`,
         type: "GET",
         contentType: "application/json: charset=utf-8",
         dataType: "json",
     }).done((response) => {
+        //get properties 
         const cep = response.cep
         const logradouro = response.logradouro
         const complemento = response.complemento
@@ -33,10 +38,10 @@ function consultaCep() {
         const ddd = response.ddd
         const siafi = response.siafi
 
-        
+        //set body table
         contentHTML += `
-           <tr>
-                <th scope="row">${count}</th>
+           <tr id="count${count}">
+                <th id="countIndex${count}" scope="row">${count}</th>
                 <td>${cep}</td>
                 <td>${logradouro}</td>
                 <td>${complemento}</td>
@@ -50,9 +55,19 @@ function consultaCep() {
 
             </tr>
            `
-        count++
-        $("#tableBody").html(contentHTML)
+        
+        
+            $("#tableBody").html(contentHTML)
+            count++
+
+        console.log(count)
     }).always(() => {
-        $("#loader").css("display", "none")
+        //clean table
+        if (count == 10) {
+           window.location.reload()
+        }
+        //stop loading
+        $("#loader").hide()
     })
 }
+
