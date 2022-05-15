@@ -36,7 +36,7 @@ function consultaCep() {
         const siafi = response.siafi
 
         //set body table
-        contentHTML += `
+        contentHTML = `
            <tr id="count${count}">
                 <th id="countIndex${count}" scope="row">${count}</th>
                 <td>${cep}</td>
@@ -51,7 +51,7 @@ function consultaCep() {
                 <td>${siafi}</td>
 
             </tr>
-           `
+           `+contentHTML
         
         
             $("#tableBody").html(contentHTML)
