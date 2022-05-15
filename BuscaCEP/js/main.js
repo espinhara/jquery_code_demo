@@ -2,12 +2,9 @@
 var cep = "";
 //function get change input 
 function chnageInput(e) {
-    console.log(e.value.toString())
     const str = e.value.length
-    console.log(str)
     if (str == 8) {
         cep = e.value
-        console.log(cep)
         $("#btnConsult").show()
     }
 
@@ -59,8 +56,6 @@ function consultaCep() {
         
             $("#tableBody").html(contentHTML)
             count++
-
-        console.log(count)
     }).always(() => {
         //clean table
         if (count == 10) {
